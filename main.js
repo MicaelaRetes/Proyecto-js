@@ -1,51 +1,73 @@
 // Algoritmo con un condicional
+function verificarNumero() {
+    let num = parseFloat(prompt("Introduce un número:"));
+    let resultado = {
+        valor: num,
+        mensaje: ""
+    };
 
-function verificarNumero(num) {
     if (num > 0) {
-        console.log("El número es positivo.");
+        resultado.mensaje = "El número es positivo.";
     } else if (num < 0) {
-        console.log("El número es negativo.");
+        resultado.mensaje = "El número es negativo.";
     } else {
-        console.log("El número es cero.");
+        resultado.mensaje = "El número es cero.";
     }
-}
 
-// Ejemplo de uso
-verificarNumero(5);  // El número es positivo.
-verificarNumero(-3); // El número es negativo.
-verificarNumero(0);  // El número es cero.
+    console.log(resultado);
+}
 
 // Algoritmo utilizando un ciclo
+function imprimirNumerosYSumar() {
+    let numeros = [];
+    let suma = 0;
 
-function imprimirNumeros() {
     for (let i = 1; i <= 10; i++) {
-        console.log(i);
+        numeros.push(i);
+        suma += i;
     }
+
+    console.log("Números del 1 al 10:", numeros);
+    console.log("Suma de los números del 1 al 10:", suma);
 }
 
-// Ejemplo de uso
-imprimirNumeros();
-
 // Simulador interactivo
-
 function jugar() {
     const numeroSecreto = Math.floor(Math.random() * 10) + 1;
-    let intento = 0;
+    let intentos = [];
     let adivinanza;
+    let exito = false;
 
-    while (adivinanza != numeroSecreto) {
+    while (!exito) {
         adivinanza = parseInt(prompt("Adivina un número entre 1 y 10:"));
-        intento++;
+        intentos.push(adivinanza);
 
         if (adivinanza === numeroSecreto) {
-            alert(`¡Felicidades! Adivinaste el número en ${intento} intentos.`);
+            exito = true;
+            alert(`¡Felicidades! Adivinaste el número en ${intentos.length} intentos.`);
         } else if (adivinanza > numeroSecreto) {
             alert("El número secreto es menor. Intenta nuevamente.");
         } else {
             alert("El número secreto es mayor. Intenta nuevamente.");
         }
     }
+
+    console.log("Historial de intentos:", intentos);
+
+    // Búsqueda y filtrado de intentos
+    let intentosMayores = intentos.filter(num => num > numeroSecreto);
+    let intentosMenores = intentos.filter(num => num < numeroSecreto);
+
+    console.log("Intentos mayores al número secreto:", intentosMayores);
+    console.log("Intentos menores al número secreto:", intentosMenores);
 }
+
+// Ejemplos de uso
+console.log("Algoritmo con un condicional:");
+verificarNumero();
+
+console.log("Algoritmo utilizando un ciclo:");
+imprimirNumerosYSumar();
 
 // Ejecutar el simulador
 jugar();
