@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adivina adivinador</title>
+    <title>Adivina Adivinador</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>¡Adivina el Número!</h1>
+        <p>Intenta adivinar el número secreto entre 1 y 10.</p>
+
+        <div class="game">
+            <input type="number" id="inputAdivinanza" placeholder="Adivina un número">
+            <button id="btnJugar">Jugar</button>
+        </div>
+
+        <div id="resultados">
+            <p id="resultadoJuego"></p>
+            <p id="historialIntentos"></p>
+        </div>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
